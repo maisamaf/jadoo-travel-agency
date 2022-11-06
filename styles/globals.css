@@ -11,3 +11,6 @@
   body {
     font-family: "Volkhov", serif;
   }
+  .mySwiper {
+    overflow:hidden!important;
+  }
