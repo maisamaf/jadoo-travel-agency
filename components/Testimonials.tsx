@@ -25,7 +25,7 @@ export default function Testimonials({}: Props) {
         <div className="max-w-sm md:max-w-md mt-14">
           <Swiper
             scrollbar={{
-              hide: false,
+              hide: true,
             }}
             effect={"cards"}
             grabCursor={true}
