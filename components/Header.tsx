@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -10,7 +11,7 @@ export default function Header({}: Props) {
       <Head>
         <title>Jadoo | Travel Agency</title>
         <meta charSet="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="./images/favicon.png" />
         <meta
@@ -65,7 +66,12 @@ export default function Header({}: Props) {
         className="absolute hidden md:block md:-top-32 md:-left-44 h-[378px] w-[396px]  bg-pink-circle bg-no-repeat bg-cover"
       ></div>
       <header className="relative w-full mx-auto mt-5 mb-20 md:w-10/12">
-        <nav>
+        <motion.nav
+          initial={{ y: -20 }}
+          transition={{ duration: 1 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+        >
           <div className="max-w-6xl px-4 mx-auto">
             <div className="flex justify-between">
               <div className="flex space-x-7">
@@ -128,14 +134,20 @@ export default function Header({}: Props) {
                 </li>
               </ul>
               <div className="flex items-center md:hidden">
-                <button className="outline-none" id="btn-mobile-menu" onClick={() => {setOpen(!open)}}>
+                <button
+                  className="outline-none"
+                  id="btn-mobile-menu"
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
+                >
                   <svg
                     className="w-6 h-6 text-gray-500 hover:text-primary"
                     x-show="!showMenu"
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
@@ -147,9 +159,13 @@ export default function Header({}: Props) {
           </div>
           <div
             id="mobile-menu"
-            className={`bg-[#FFF1DA] transition transform duration-300 ease-linear ${open ? 'flex' : 'hidden'}`}
+            className={`bg-[#FFF1DA] transition transform duration-300 ease-linear ${
+              open ? "flex" : "hidden"
+            }`}
           >
-            <ul className={`flex flex-col p-4 mx-4 space-y-5 text-sm sm:hidden font-poppins`}>
+            <ul
+              className={`flex flex-col p-4 mx-4 space-y-5 text-sm sm:hidden font-poppins`}
+            >
               <li>
                 <a href="/#">Destinations</a>
               </li>
@@ -189,10 +205,16 @@ export default function Header({}: Props) {
               </li>
             </ul>
           </div>
-        </nav>
+        </motion.nav>
         <div className="absolute -top-[16rem] -right-[16.5rem] -z-10 rotate-10 h-[872px] w-[786px] bg-hero bg-no-repeat bg-cover" />
         <div className="flex flex-col my-20 md:mx-12 md:flex-row">
-          <div className="flex-1 mx-8 md:mt-8">
+          <motion.div
+            initial={{ x: -100 }}
+            transition={{ duration: 1.5 }}
+            whileInView={{ x: 0 }}
+            viewport={{ once: true }}
+            className="flex-1 mx-8 md:mt-8"
+          >
             <p className="font-bold uppercase text-primary/80">
               Best destinations around the world
             </p>
@@ -245,8 +267,14 @@ export default function Header({}: Props) {
                 <button className="inline -ml-3 -mt-7">Play Demo</button>
               </div>
             </div>
-          </div>
-          <div className="relative flex-1 mt-24 md:mt-0">
+          </motion.div>
+          <motion.div
+            initial={{ x: 100 }}
+            transition={{ duration: 1.5 }}
+            whileInView={{ x: 0 }}
+            viewport={{ once: true }}
+            className="relative flex-1 mt-24 md:mt-0"
+          >
             <img
               src="/images/traveller.png"
               className="-mt-14 w-[750px] md:w-full md:right-7 md:absolute"
@@ -262,7 +290,7 @@ export default function Header({}: Props) {
               alt="plane"
               className="absolute right-0 -top-12 md:top-12"
             />
-          </div>
+          </motion.div>
         </div>
       </header>
     </>

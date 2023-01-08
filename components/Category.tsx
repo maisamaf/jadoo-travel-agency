@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 type Props = {};
 
 export default function Category({}: Props) {
@@ -16,7 +16,13 @@ export default function Category({}: Props) {
           role="presentation"
         />
       </div>
-      <div className="flex flex-wrap justify-center my-14 gap-14 font-poppins">
+      <motion.div
+        initial={{ y: 100 }}
+        transition={{ duration: 1.5 }}
+        whileInView={{ y: 0 }}
+        viewport={{ once: true }}
+        className="flex flex-wrap justify-center my-14 gap-14 font-poppins"
+      >
         <div className="relative group">
           <div className="opacity-0 group-hover:opacity-100 transition duration-200 delay-100 ease-in absolute -bottom-9 -left-10 w-20 h-20 rounded-bl-sm rounded-tl-[2rem] bg-primary rounded-br-md"></div>
           <div className="grid px-3 pt-4 pb-10 transition transform place-items-center rounded-[2rem] hover:scale-110 hover:bg-white hover:drop-shadow-2xl cursor-default">
@@ -43,11 +49,7 @@ export default function Category({}: Props) {
           <div className="opacity-0 group-hover:opacity-100 transition duration-200 delay-100 ease-in absolute -bottom-9 -left-10 w-20 h-20 rounded-bl-sm rounded-tl-[2rem] bg-primary rounded-br-md"></div>
           <div className="grid px-3 pt-4 pb-10 transition transform place-items-center rounded-[2rem] hover:scale-110 hover:bg-white hover:drop-shadow-2xl cursor-default">
             <div className="relative flex mb-4 w-max">
-              <img
-                src="/images/plane.png"
-                className="z-10"
-                alt="Plane image"
-              />
+              <img src="/images/plane.png" className="z-10" alt="Plane image" />
               <div className="absolute w-12 h-12 rounded-bl-2xl rounded-tr-2xl -top-2 left-6 bg-light-orange rounded-br-md"></div>
             </div>
             <div className="text-center">
@@ -101,7 +103,7 @@ export default function Category({}: Props) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
